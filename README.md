@@ -16,3 +16,15 @@ To do this:
 
 Basically what is happening is that, while being built, the container can see your system's `/tmp` folder.
 So we put the required security files into `/tmp` and these get copied into the container's `/etc/` folder when it is built.
+
+Using container:
+
+* copy the new container to the Tuft's grid at: `/cluster/tufts/wongjiradlab/larbys/images/singularity-xrootd`
+* start the container using `source start_container.sh`
+* you'll see a prompt once you are in the container.  type `bash` to start a bash shell
+* navigate back to the container folder: `cd /cluster/kappa/wongjiradlab/larbys/imagees/singularity-xrootd`
+* in another terminal, log into one of the uboone gpvms. refresh your vomses certificates.
+* make a copy of `example_setup_container_X.sh`, where `X` is your FNAL username
+* change XXXXXX with your FNAL username and YYYYYY with your user id
+* run this script
+* you can test that your container now has permissions to use xrootd to access PNFS by running: `python test_setup.py`
