@@ -7,7 +7,7 @@ To do this:
 
 * make sure your computer is setup to be able to get a FNAL kerberos ticket (i.e. `kinit` workse)
 * clone this repo to your computer
-* get a kerberos ticket: `kinit [username]@FNAL.GO
+* get a kerberos ticket: `kinit [username]@FNAL.GOV`
 * make sure `/tmp/grid-certificates` and `/tmp/vomses` are removed from your `/tmp` folder
 * scp `/etc/grid-certificates` and `/etc/vomses` to your `/tmp` folder from one of the uboone gpvms.
 * cp `/etc/krb5.conf` to `/tmp`
