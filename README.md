@@ -8,10 +8,10 @@ To do this:
 * make sure your computer is setup to be able to get a FNAL kerberos ticket (i.e. `kinit` workse)
 * clone this repo to your computer
 * get a kerberos ticket: `kinit [username]@FNAL.GOV`
-* make sure `/tmp/grid-certificates` and `/tmp/vomses` are removed from your `/tmp` folder
+* make sure `/tmp/grid-security` and `/tmp/vomses` are removed from your `/tmp` folder
 * scp `/etc/grid-certificates` and `/etc/vomses` to your `/tmp` folder from one of the uboone gpvms.
 * cp `/etc/krb5.conf` to `/tmp`
-* finally, build the container using: `sudo singularity build singularity-xrood.img Singularity`
+* finally, build the container using: `sudo singularity build singularity-xrootd.img Singularity`
 
 
 Basically what is happening is that, while being built, the container can see your system's `/tmp` folder.
