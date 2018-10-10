@@ -17,7 +17,7 @@ Next, follow the steps below to grab the required certificates from uboonebuild 
 * clone this repo to your computer
 * get a kerberos ticket: `kinit [username]@FNAL.GOV`
 * make sure `/tmp/grid-security` and `/tmp/vomses` are removed from your `/tmp` folder
-* scp `/etc/grid-certificates` and `/etc/vomses` to your `/tmp` folder from one of the uboone gpvms.
+* scp `/etc/grid-security/certificates` and `/etc/vomses` to your `/tmp` folder from one of the uboone gpvms.
 * cp `/etc/krb5.conf` to `/tmp`
 
 
