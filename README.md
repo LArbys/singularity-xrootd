@@ -16,8 +16,8 @@ Next, follow the steps below to grab the required certificates from uboonebuild 
 * make sure your computer is setup to be able to get a FNAL kerberos ticket (i.e. `kinit` workse)
 * clone this repo to your computer
 * get a kerberos ticket: `kinit [username]@FNAL.GOV`
-* make the directory in `/tmp/$USER` to hold certificates (must be somewhere in `/tmp` in order for singularity to read from outside the new container)
-* make sure `/tmp/$USER/grid-security` and `/tmp/$USER/vomses` are removed from your `/tmp/$USER/` folder
+* make the directory `/tmp/$USER` to hold certificates (must be somewhere in `/tmp` in order for singularity to read from outside the new container)
+* if running this not for the first time, make sure `/tmp/$USER/grid-security` and `/tmp/$USER/vomses` are removed from your `/tmp/$USER/` folder
 * scp -r `/etc/grid-security` and `/etc/vomses` to your `/tmp/$USER` folder from one of the uboone gpvms.
 
       scp -r fnal-username@ubcomputer:/etc/grid-security /tmp/$USER/
