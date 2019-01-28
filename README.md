@@ -16,15 +16,26 @@ Next, follow the steps below to grab the required certificates from uboonebuild 
 * make sure your computer is setup to be able to get a FNAL kerberos ticket (i.e. `kinit` workse)
 * clone this repo to your computer
 * get a kerberos ticket: `kinit [username]@FNAL.GOV`
-* make sure `/tmp/grid-security` and `/tmp/vomses` are removed from your `/tmp` folder
-* scp `/etc/grid-certificates` and `/etc/vomses` to your `/tmp` folder from one of the uboone gpvms.
-* cp `/etc/krb5.conf` to `/tmp`
+* make the directory in `/tmp/$USER` to hold certificates (must be somewhere in `/tmp` in order for singularity to read from outside the new container)
+* make sure `/tmp/$USER/grid-security` and `/tmp/$USER/vomses` are removed from your `/tmp/$USER/` folder
+* scp -r `/etc/grid-security` and `/etc/vomses` to your `/tmp/$USER` folder from one of the uboone gpvms.
+
+      scp -r fnal-username@ubcomputer:/etc/grid-security /tmp/$USER/
+      scp fnal-username@ubcomputer:/etc/vomses /tmp/$USER/
+
+* cp `/etc/krb5.conf` to `/tmp/$USER/` or get this from the web using
+
+      wget https://cdcvs.fnal.gov/redmine/attachments/download/9616/krb5.conf /tmp/$USER/
+
+* go into `Singularity` file (this is the build instructions), and set your username at the line
+
+      export USER=your-name-here
 
 
 Finally, build the container using: 
 
 
-    sudo singularity build singularity-xrood.img Singularity
+    sudo singularity build singularity-xrootd.img Singularity
 
 
 Basically what is happening is that, while being built, the container can see your system's `/tmp` folder.
