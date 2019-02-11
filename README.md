@@ -3,6 +3,29 @@
 Container to be used for file xfer from FNAL.
 In order to xfer files, the container must have its certificates to FNAL updated periodically.
 
+# Steps to using this container and image (from scratch)
+
+Part 1: build the container
+* build the container
+
+Part 2: move the container to Tufts
+* go to the Tufts cluster (and probably to some place your user directory)
+* clone this repository
+* copy the container to the repository folder as there are scripts we will use
+
+Part 3: renew your user grid certificate on a MicroBooNE machine
+* log into the microboone machine
+* on the UBmachine: load/renew your certificates, find your UID
+* back on tufts cluster: make a copy of example_setup_container_X.sh and edit it as instructed
+* start the container, go to the repo dir, run the script
+
+Part 4: make a list of files to transfer. either:
+* make a filelist
+* retrieve or setup a SAM definition
+
+Part 5: setup xfer_script and run
+
+
 ## Building the container
 
 First find a computer that has docker and singularity (e.g. meitner). You will also need `sudo` access to build the container.
@@ -46,7 +69,7 @@ So we put the required security files into `/tmp` and these get copied into the 
 * copy the new container to the Tuft's grid at: `/cluster/tufts/wongjiradlab/larbys/images/singularity-xrootd`
 * start the container using `source start_container.sh`
 * you'll see a prompt once you are in the container.  type `bash` to start a bash shell
-* navigate back to the container folder: `cd /cluster/kappa/wongjiradlab/larbys/imagees/singularity-xrootd`
+* navigate back to the container folder: `cd /cluster/kappa/wongjiradlab/larbys/images/singularity-xrootd`
 * in another terminal, log into one of the uboone gpvms. refresh your vomses certificates.
 * make a copy of `example_setup_container_X.sh`, where `X` is your FNAL username
 * change XXXXXX with your FNAL username and YYYYYY with your user id
